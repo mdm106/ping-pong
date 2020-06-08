@@ -13,14 +13,16 @@ const App = ({ player1, player2, serving, winner, handleIncrementP1, handleIncre
           score={player1}
           serving={serving}
           handleIncrement={handleIncrementP1}
+          winner={winner}
         />
         <Card 
           player="Player 2"
           score={player2}
           serving={!serving}
           handleIncrement={handleIncrementP2}
+          winner={winner}
         />
-        
+
         { /* winner message */}
         { winner === "" ? "" : <h2 className="alert alert-success">Player {winner} wins!</h2>}
         <hr />

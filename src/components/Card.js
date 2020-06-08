@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = ({ player, score, serving, handleIncrement }) => (
+const Card = ({ player, score, serving, handleIncrement, winner }) => (
     <div className="row mb-4">
         <div className="col-md-6 mt-4">
             <div className={"card text-center" + (serving ? " bg-dark text-white" : "")}>
@@ -9,7 +9,9 @@ const Card = ({ player, score, serving, handleIncrement }) => (
                     <p className="card-text display-1">{score}</p>
                 </div>
                 <div className="card-footer">
-                    <button className="form-control btn btn-success" onClick={ handleIncrement }>+</button>
+                    <button className="form-control btn btn-success"
+                            onClick={ handleIncrement }
+                            disabled={ winner !== "" }>+</button>
                 </div>
             </div>
         </div>
