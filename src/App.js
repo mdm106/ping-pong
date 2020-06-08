@@ -1,6 +1,6 @@
 import React from "react";
 
-const App = ({ scores, handleIncrementP1, handleIncrementP2, handleReset }) => (
+const App = ({ player1, player2, serving, handleIncrementP1, handleIncrementP2, handleReset }) => (
     <React.Fragment>
         {/* header */}
         <header className="jumbotron mt-4 mb-0">
@@ -10,10 +10,10 @@ const App = ({ scores, handleIncrementP1, handleIncrementP2, handleReset }) => (
         {/* scores */}
         <div className="row mb-4">
             <div className="col-md-6 mt-4">
-                <div className="card text-center bg-dark text-white">
+                <div className={"card text-center" + (serving ? " bg-dark text-white" : "")}>
                     <h5 className="card-header">Player 1</h5>
                     <div className="card-body">
-                        <p className="card-text display-1">{scores.player1}</p>
+                        <p className="card-text display-1">{player1}</p>
                     </div>
                     <div className="card-footer">
                         <button className="form-control btn btn-success" onClick={ handleIncrementP1 }>+</button>
@@ -22,10 +22,10 @@ const App = ({ scores, handleIncrementP1, handleIncrementP2, handleReset }) => (
             </div>
 
             <div className="col-md-6 mt-4">
-                <div className="card text-center">
+                <div className={"card text-center" + (serving ? "" : " bg-dark text-white")}>
                     <h5 className="card-header">Player 2</h5>
                     <div className="card-body">
-                        <p className="card-text display-1">{scores.player2}</p>
+                        <p className="card-text display-1">{player2}</p>
                     </div>
                     <div className="card-footer">
                         <button className="form-control btn btn-success" onClick={ handleIncrementP2 }>+</button>
