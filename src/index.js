@@ -9,6 +9,12 @@ const initial = {
   player2: 0,
 };
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    default: return state;
+  }
+}
+
 const store = createStore(
   reducer,
   initial,
@@ -22,7 +28,7 @@ const render = () => {
   // pass in state.value as a value prop
   ReactDOM.render(
     <React.StrictMode>
-      <App />
+      <App scores={state}/>
     </React.StrictMode>,
     document.getElementById("root") 
     );
