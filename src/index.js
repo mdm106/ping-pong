@@ -16,9 +16,9 @@ const player2 = state => ({ ...state, player2: state.player2 + 1 });
 const server = state => ({ ...state, serving: (state.player1 + state.player2) % 5 === 0 ? !state.serving : state.serving })
 const winning = state => {
   let win = "";
-  if(state.player1 === 21) {
+  if(state.player1 >= 21 && state.player2 <= (state.player1 - 2)) {
     win="1"
-  } else if (state.player2 === 21){
+  } else if (state.player2 >= 21 && state.player1 <= (state.player2 - 2)){
     win="2"
   }
   return {...state, winner: win}
