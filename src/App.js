@@ -1,4 +1,5 @@
 import React from "react";
+import Card from "./components/Card";
 
 const App = ({ player1, player2, serving, winner, handleIncrementP1, handleIncrementP2, handleReset }) => (
     <React.Fragment>
@@ -7,33 +8,19 @@ const App = ({ player1, player2, serving, winner, handleIncrementP1, handleIncre
             <h1>PongPing</h1>
         </header>
 
-        {/* scores */}
-        <div className="row mb-4">
-            <div className="col-md-6 mt-4">
-                <div className={"card text-center" + (serving ? " bg-dark text-white" : "")}>
-                    <h5 className="card-header">Player 1</h5>
-                    <div className="card-body">
-                        <p className="card-text display-1">{player1}</p>
-                    </div>
-                    <div className="card-footer">
-                        <button className="form-control btn btn-success" onClick={ handleIncrementP1 }>+</button>
-                    </div>
-                </div>
-            </div>
-
-            <div className="col-md-6 mt-4">
-                <div className={"card text-center" + (serving ? "" : " bg-dark text-white")}>
-                    <h5 className="card-header">Player 2</h5>
-                    <div className="card-body">
-                        <p className="card-text display-1">{player2}</p>
-                    </div>
-                    <div className="card-footer">
-                        <button className="form-control btn btn-success" onClick={ handleIncrementP2 }>+</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        <Card 
+          player="Player 1"
+          score={player1}
+          serving={serving}
+          handleIncrement={handleIncrementP1}
+        />
+        <Card 
+          player="Player 2"
+          score={player2}
+          serving={!serving}
+          handleIncrement={handleIncrementP2}
+        />
+        
         { /* winner message */}
         { winner === "" ? "" : <h2 className="alert alert-success">Player {winner} wins!</h2>}
         <hr />
