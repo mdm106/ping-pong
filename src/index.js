@@ -14,6 +14,7 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "INCREMENT_P1": return {...state, player1: state.player1 + 1};
     case "INCREMENT_P2": return {...state, player2: state.player2 + 1};
+    case "RESET": return initial;
     default: return state;
   }
 }
@@ -31,7 +32,10 @@ const render = () => {
   // pass in state.value as a value prop
   ReactDOM.render(
     <React.StrictMode>
-      <App scores={state} handleIncrementP1={ () => store.dispatch({ type: "INCREMENT_P1", player: "player1" }) } handleIncrementP2={ () => store.dispatch({ type: "INCREMENT_P2", player: "player2" }) }/>
+      <App scores={state}
+           handleIncrementP1={ () => store.dispatch({ type: "INCREMENT_P1" }) } 
+           handleIncrementP2={ () => store.dispatch({ type: "INCREMENT_P2" }) }
+           handleReset={ () => store.dispatch({ type: "RESET" }) }/>
     </React.StrictMode>,
     document.getElementById("root") 
     );
