@@ -1,11 +1,11 @@
 import React from "react";
 import Player1 from "./Player/Player1";
 import Player2 from "./Player/Player2";
-import Result from "./Result";
+import Result from "./Result/index";
 import Button from "./Reset";
 import History from "./History";
 
-const App = ({ winner, gameHistory, handleIncrementP1, handleIncrementP2, handleReset }) => (
+const App = ({ gameHistory, handleIncrementP1, handleIncrementP2, handleReset }) => (
     <React.Fragment>
         {/* header */}
         <header className="jumbotron mt-4 mb-0">
@@ -22,9 +22,7 @@ const App = ({ winner, gameHistory, handleIncrementP1, handleIncrementP2, handle
         />
 
         { /* winner message */}
-        <Result 
-          winner={winner}
-        />
+        <Result />
         <hr />
 
         { /* reset button */}
