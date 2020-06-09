@@ -21,30 +21,36 @@ const winning = state => {
   return {...state, winner: win}
 }
 
-const gameHistory = state => {
-  let previousGame = state.gameHistory;
-  if(state.winner!== "") {
-    previousGame = [{
-      player_1: {
-        score: state.player1,
-        won: state.winner === "1"
-      },
-      player_2: {
-        score: state.player2,
-        won: state.winner === "2"
-      }
-    }]
-  }
-  return {...initial, 
-    gameHistory: previousGame
-  }
+const updateHistory = state => {
+    if(state.winner === "") {
+        return {
+            ...initial,
+            gameHistory: state.gameHistory,
+        }
+    } else {
+        return {
+            ...initial,
+            gameHistory: [...state.gameHistory,
+                {
+                    player_1: {
+                      score: state.player1,
+                      won: state.winner === "1"
+                    },
+                    player_2: {
+                      score: state.player2,
+                      won: state.winner === "2"
+                    }
+                }
+            ]
+        }
+    }
 }
   
 const reducer = (state, action) => {
   switch (action.type) {
     case "INCREMENT_P1": return winning(server(player1(state)));
     case "INCREMENT_P2": return winning(server(player2(state)));
-    case "RESET": return gameHistory(state);
+    case "RESET": return updateHistory(state);
     default: return state;
   }
 }
