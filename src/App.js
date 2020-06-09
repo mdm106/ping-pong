@@ -1,8 +1,8 @@
 import React from "react";
-import Player from "./Player/Player";
-import Result from "./Result";
-import Button from "./Reset";
-import History from "./History";
+import Player from "./components/Player";
+import Result from "./components/Result";
+import Button from "./components/Reset";
+import History from "./components/History";
 
 const App = ({ player1, player2, serving, winner, gameHistory, handleIncrementP1, handleIncrementP2, handleReset }) => (
     <React.Fragment>
