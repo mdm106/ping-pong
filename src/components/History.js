@@ -9,7 +9,7 @@ const History = ({ gameHistory }) => {
                 <h2 className="alert alert-secondary mt-2">No previous results to display</h2> 
             :
             <div className="mt-2">
-                <h2 className="alert alert-secondary">Previous game results:</h2>
+                <h2 className="alert alert-secondary">Previous full game results:</h2>
                 <table className="table">
                     <thead>
                         <tr>

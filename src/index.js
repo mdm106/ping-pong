@@ -45,8 +45,9 @@ const winning = state => {
 }
 
 const gameHistory = state => {
-  return {...initial, 
-    gameHistory: [{
+  let previousGame = state.gameHistory;
+  if(state.winner!== "") {
+    previousGame = [{
       player_1: {
         score: state.player1,
         won: state.winner === "1"
@@ -56,6 +57,9 @@ const gameHistory = state => {
         won: state.winner === "2"
       }
     }]
+  }
+  return {...initial, 
+    gameHistory: previousGame
   }
 }
   
