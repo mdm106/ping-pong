@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "./components/Card";
+import Result from "./components/Result";
 
 const App = ({ player1, player2, serving, winner, handleIncrementP1, handleIncrementP2, handleReset }) => (
     <React.Fragment>
@@ -24,11 +25,14 @@ const App = ({ player1, player2, serving, winner, handleIncrementP1, handleIncre
         />
 
         { /* winner message */}
-        { winner === "" ? "" : <h2 className="alert alert-success">Player {winner} wins!</h2>}
+        <Result 
+          winner={winner}
+        />
         <hr />
 
         { /* reset button */}
         <button className="btn btn-danger" onClick={ handleReset }>Reset</button>
+        
     </React.Fragment>
 );
 
