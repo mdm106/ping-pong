@@ -8,15 +8,12 @@ import { Provider } from 'react-redux';
 
 // we update subscribe to call the ReactDOM.render // method whenever the state changes
 const render = () => {
-  let { player1, player2, serving, winner, gameHistory } = store.getState();
+  let { winner, gameHistory } = store.getState();
   // pass in state.value as a value prop
   ReactDOM.render(
     <React.StrictMode>
       <Provider store={ store }>
         <App
-          player1={player1}
-          player2={player2}
-          serving={serving}
           winner={winner}
           gameHistory={gameHistory}
           handleIncrementP1={ () => store.dispatch({ type: "INCREMENT_P1" }) } 

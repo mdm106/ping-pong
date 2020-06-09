@@ -1,29 +1,24 @@
 import React from "react";
-import Player from "./Player/Player";
+import Player1 from "./Player/Player1";
+import Player2 from "./Player/Player2";
 import Result from "./Result";
 import Button from "./Reset";
 import History from "./History";
 
-const App = ({ player1, player2, serving, winner, gameHistory, handleIncrementP1, handleIncrementP2, handleReset }) => (
+const App = ({ winner, gameHistory, handleIncrementP1, handleIncrementP2, handleReset }) => (
     <React.Fragment>
         {/* header */}
         <header className="jumbotron mt-4 mb-0">
             <h1>PongPing</h1>
         </header>
 
-        <Player 
+        <Player1 
           player="Player 1"
-          score={player1}
-          serving={serving}
           handleIncrement={handleIncrementP1}
-          winner={winner}
         />
-        <Player 
+        <Player2
           player="Player 2"
-          score={player2}
-          serving={!serving}
           handleIncrement={handleIncrementP2}
-          winner={winner}
         />
 
         { /* winner message */}
