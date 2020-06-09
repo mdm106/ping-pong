@@ -1,5 +1,3 @@
-import React from 'react';
-
 const initial = {
     player1: 0,
     player2: 0,
