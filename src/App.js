@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "./components/Card";
 import Result from "./components/Result";
+import Button from "./components/Reset";
 
 const App = ({ player1, player2, serving, winner, handleIncrementP1, handleIncrementP2, handleReset }) => (
     <React.Fragment>
@@ -31,7 +32,9 @@ const App = ({ player1, player2, serving, winner, handleIncrementP1, handleIncre
         <hr />
 
         { /* reset button */}
-        <button className="btn btn-danger" onClick={ handleReset }>Reset</button>
+        <Button 
+          handleReset={handleReset}
+        />
         
     </React.Fragment>
 );
