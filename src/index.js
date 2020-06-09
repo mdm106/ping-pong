@@ -9,6 +9,17 @@ const initial = {
   player2: 0,
   serving: true,
   winner: "",
+  gameHistory: [
+    {
+      player_1: { 
+        score: 0,
+        won: false
+    },
+      player_2: { 
+        score: 0,
+        won: false
+    }
+  }]  
 };
 
 const player1 = state => ({ ...state, player1: state.player1 + 1 });
@@ -31,12 +42,27 @@ const winning = state => {
   }
   return {...state, winner: win}
 }
+
+const gameHistory = state => {
+  return {...initial, 
+    gameHistory: [{
+      player_1: {
+        score: state.player1,
+        won: state.winner === "1"
+      },
+      player_2: {
+        score: state.player2,
+        won: state.winner === "2"
+      }
+    }]
+  }
+}
   
 const reducer = (state, action) => {
   switch (action.type) {
     case "INCREMENT_P1": return winning(server(player1(state)));
     case "INCREMENT_P2": return winning(server(player2(state)));
-    case "RESET": return initial;
+    case "RESET": return gameHistory(state);
     default: return state;
   }
 }
@@ -50,18 +76,20 @@ const store = createStore(
 
 // we update subscribe to call the ReactDOM.render // method whenever the state changes
 const render = () => {
-  let { player1, player2, serving, winner } = store.getState();
+  let { player1, player2, serving, winner, gameHistory } = store.getState();
   // pass in state.value as a value prop
   ReactDOM.render(
     <React.StrictMode>
-      <App player1={player1}
-           player2={player2}
-           serving={serving}
-           winner={winner}
-           handleIncrementP1={ () => store.dispatch({ type: "INCREMENT_P1" }) } 
-           handleIncrementP2={ () => store.dispatch({ type: "INCREMENT_P2" }) }
-           handleReset={ () => store.dispatch({ type: "RESET" }) }
-          />
+      <App
+        player1={player1}
+        player2={player2}
+        serving={serving}
+        winner={winner}
+        gameHistory={gameHistory}
+        handleIncrementP1={ () => store.dispatch({ type: "INCREMENT_P1" }) } 
+        handleIncrementP2={ () => store.dispatch({ type: "INCREMENT_P2" }) }
+        handleReset={ () => store.dispatch({ type: "RESET" }) }
+      />
     </React.StrictMode>,
     document.getElementById("root") 
     );

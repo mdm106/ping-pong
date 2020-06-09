@@ -2,8 +2,9 @@ import React from "react";
 import Card from "./components/Card";
 import Result from "./components/Result";
 import Button from "./components/Reset";
+import History from "./components/History";
 
-const App = ({ player1, player2, serving, winner, handleIncrementP1, handleIncrementP2, handleReset }) => (
+const App = ({ player1, player2, serving, winner, gameHistory, handleIncrementP1, handleIncrementP2, handleReset }) => (
     <React.Fragment>
         {/* header */}
         <header className="jumbotron mt-4 mb-0">
@@ -34,6 +35,10 @@ const App = ({ player1, player2, serving, winner, handleIncrementP1, handleIncre
         { /* reset button */}
         <Button 
           handleReset={handleReset}
+        />
+
+        <History
+          gameHistory={gameHistory}
         />
         
     </React.Fragment>
