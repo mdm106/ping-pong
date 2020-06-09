@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { createStore } from "redux";
+import { createStore, compose } from "redux";
+import persistState from "redux-localstorage";
 
 
 const initial = {
@@ -67,11 +68,12 @@ const reducer = (state, action) => {
   }
 }
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const store = createStore(
   reducer,
   initial,
-  window.__REDUX_DEVTOOLS_EXTENSION__
-    && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  composeEnhancers(persistState()),
 );
 
 // we update subscribe to call the ReactDOM.render // method whenever the state changes
