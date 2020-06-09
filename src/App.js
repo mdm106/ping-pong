@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "./components/Card";
+import Player from "./components/Player";
 import Result from "./components/Result";
 import Button from "./components/Reset";
 import History from "./components/History";
@@ -11,14 +11,14 @@ const App = ({ player1, player2, serving, winner, gameHistory, handleIncrementP1
             <h1>PongPing</h1>
         </header>
 
-        <Card 
+        <Player 
           player="Player 1"
           score={player1}
           serving={serving}
           handleIncrement={handleIncrementP1}
           winner={winner}
         />
-        <Card 
+        <Player 
           player="Player 2"
           score={player2}
           serving={!serving}
