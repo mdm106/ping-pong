@@ -3,9 +3,9 @@ import Player1 from "./Player/Player1";
 import Player2 from "./Player/Player2";
 import Result from "./Result/index";
 import Button from "./Reset";
-import History from "./History";
+import History from "./History/index";
 
-const App = ({ gameHistory, handleIncrementP1, handleIncrementP2, handleReset }) => (
+const App = ({ handleIncrementP1, handleIncrementP2, handleReset }) => (
     <React.Fragment>
         {/* header */}
         <header className="jumbotron mt-4 mb-0">
@@ -30,9 +30,7 @@ const App = ({ gameHistory, handleIncrementP1, handleIncrementP2, handleReset })
           handleReset={handleReset}
         />
 
-        <History
-          gameHistory={gameHistory}
-        />
+        <History />
         
     </React.Fragment>
 );
