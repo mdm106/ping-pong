@@ -1,27 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import initial from '../src/data/initial';
 import { createStore, compose } from "redux";
 import persistState from "redux-localstorage";
-
-
-const initial = {
-  player1: 0,
-  player2: 0,
-  serving: true,
-  winner: "",
-  gameHistory: [
-    {
-      player_1: { 
-        score: 0,
-        won: false
-    },
-      player_2: { 
-        score: 0,
-        won: false
-    }
-  }]  
-};
 
 const player1 = state => ({ ...state, player1: state.player1 + 1 });
 const player2 = state => ({ ...state, player2: state.player2 + 1 });
