@@ -1,9 +1,9 @@
 import React from "react";
 import Player1 from "./Player/Player1";
 import Player2 from "./Player/Player2";
-import Result from "./Result/index";
+import Result from "./Result";
 import Button from "./Reset";
-import History from "./History/index";
+import History from "./History";
 
 const App = ({ handleIncrementP1, handleIncrementP2, handleReset }) => (
     <React.Fragment>
@@ -26,7 +26,7 @@ const App = ({ handleIncrementP1, handleIncrementP2, handleReset }) => (
         <hr />
 
         { /* reset button */}
-        <Button 
+        <Button
           handleReset={handleReset}
         />
 
