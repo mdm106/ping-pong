@@ -4,12 +4,17 @@ import { connect } from "react-redux";
 // import the React component that we want to wrap // in the same directory, so path is short
 import Reset from "./Reset";
 import { reset } from "../../data/actions";
+import history from "../../history";
 // mapDispatchToProps: passes in the store.dispatch method
 // we can then create anonymous functions to call it with the
 // correct actions - these get merged in to any other props being passed in
 const mapDispatchToProps = dispatch => {
     return {
-        handleReset: () => dispatch(reset()), 
+        handleReset: () => {
+            dispatch(reset());
+
+            history.push("/");
+        } 
     }; 
 };
 // use the connect function to connect mapDispatchToProps
