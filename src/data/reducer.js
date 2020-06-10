@@ -27,7 +27,7 @@ const winning = state => {
 }
 
 const reset = state => {
-  let { gameHistory, winner } = state;
+  let { gameHistory, winner, player1, player2 } = state;
   return {
     ...state,
     gameHistory: winner === "" ? gameHistory :
