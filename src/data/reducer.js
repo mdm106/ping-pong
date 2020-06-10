@@ -39,11 +39,22 @@ const updateHistory = state => {
       ] 
   }
 }
+
+const startGame = (state, {player1Name, player2Name, winningScore, alternate}) => {
+  return {
+    ...state,
+    player1Name,
+    player2Name,
+    winningScore,
+    alternate,
+  }
+}
   
 const reducer = (state, action) => {
   switch (action.type) {
     case "INCREMENT_P1": return winning(server(player1(state)));
     case "INCREMENT_P2": return winning(server(player2(state)));
+    case "SAVE_SETTINGS": return startGame(state, action);
     case "RESET": return updateHistory(state);
     default: return state;
   }

@@ -4,9 +4,11 @@ import Player2 from "./Player/Player2";
 import Result from "./Result";
 import Reset from "./Reset";
 import History from "./History";
+import Settings from "./Settings";
 
 const App = () => (
     <React.Fragment>
+        <Settings />
         {/* header */}
         <header className="jumbotron mt-4 mb-0">
             <h1>PongPing</h1>
