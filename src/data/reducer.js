@@ -22,28 +22,22 @@ const winning = state => {
 }
 
 const updateHistory = state => {
-    if(state.winner === "") {
-        return {
-            ...initial,
-            gameHistory: state.gameHistory,
+  return {
+    ...initial,
+    gameHistory: state.winner === "" ? state.gameHistory :
+      [...state.gameHistory,
+        {
+            player_1: {
+              score: state.player1,
+              won: state.winner === "1"
+            },
+            player_2: {
+              score: state.player2,
+              won: state.winner === "2"
+            }
         }
-    } else {
-        return {
-            ...initial,
-            gameHistory: [...state.gameHistory,
-                {
-                    player_1: {
-                      score: state.player1,
-                      won: state.winner === "1"
-                    },
-                    player_2: {
-                      score: state.player2,
-                      won: state.winner === "2"
-                    }
-                }
-            ]
-        }
-    }
+      ] 
+  }
 }
   
 const reducer = (state, action) => {
