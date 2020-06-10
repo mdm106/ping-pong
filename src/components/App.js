@@ -2,7 +2,7 @@ import React from "react";
 import Player1 from "./Player/Player1";
 import Player2 from "./Player/Player2";
 import Result from "./Result";
-import Button from "./Reset";
+import Reset from "./Reset";
 import History from "./History";
 
 const App = ({ handleIncrementP1, handleIncrementP2, handleReset }) => (
@@ -26,9 +26,7 @@ const App = ({ handleIncrementP1, handleIncrementP2, handleReset }) => (
         <hr />
 
         { /* reset button */}
-        <Button
-          handleReset={handleReset}
-        />
+        <Reset />
 
         <History />
         
