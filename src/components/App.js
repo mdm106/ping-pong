@@ -5,7 +5,7 @@ import Result from "./Result";
 import Reset from "./Reset";
 import History from "./History";
 
-const App = ({ handleIncrementP1, handleIncrementP2, handleReset }) => (
+const App = () => (
     <React.Fragment>
         {/* header */}
         <header className="jumbotron mt-4 mb-0">
