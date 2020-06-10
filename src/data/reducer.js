@@ -31,6 +31,7 @@ const reset = state => {
   return {
     ...state,
     gameHistory: winner === "" ? gameHistory :
+    (gameHistory[0].player_1.won || gameHistory[0].player_2.won) ?
       [...gameHistory,
         {
             player_1: {
@@ -42,7 +43,17 @@ const reset = state => {
               won: winner === "2"
             }
         }
-      ],
+      ] :
+      [{
+        player_1: {
+          score: player1,
+          won: winner === "1"
+        },
+        player_2: {
+          score: player2,
+          won: winner === "2"
+        }
+      }],
      player1: initial.player1,
      player2: initial.player2,
      serving: initial.serving,
