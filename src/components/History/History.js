@@ -18,8 +18,8 @@ const History = ({ gameHistory }) => {
                     </thead>
                     <tbody>
                         {gameHistory.map((game, i) => (
-                        <>
-                            <tr key={ i }>
+                        <React.Fragment key= { i }>
+                            <tr>
                                 <td colSpan="3" style={{fontWeight: "bold"}}>Game {i+1}</td>
                             </tr>
                             <tr className={game.player_1.won ? "table-success" : "table-danger"}>
@@ -32,7 +32,7 @@ const History = ({ gameHistory }) => {
                                 <td>{game.player_2.score}</td>
                                 <td>{game.player_2.won ? "Won" : "Lost"}</td>
                             </tr> 
-                        </>
+                        </React.Fragment>
                         ))}
                     </tbody>
                 </table>
