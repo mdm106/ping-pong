@@ -47,7 +47,7 @@ class Settings extends Component {
 
         return (
             <>
-                <h3>PongPing</h3>
+                <h1 className="display-4">PongPing</h1>
                 <form onSubmit={ this.handleSubmit }>
                     <div className="form-group"> 
                         <label>Player 1 Name
@@ -58,6 +58,8 @@ class Settings extends Component {
                             type="text"
                         /> 
                         </label>
+                    </div>
+                    <div className="form-group"> 
                         <label>Player 2 Name
                         <input
                             className="form-control"
@@ -66,6 +68,8 @@ class Settings extends Component {
                             type="text"
                         /> 
                         </label>
+                    </div>
+                    <div className="form-group">
                         <label>Winning Score
                         <input
                             className="form-control"
@@ -74,6 +78,8 @@ class Settings extends Component {
                             type="number"
                         /> 
                         </label>
+                    </div>
+                    <div className="form-group">
                         <label>Alternate Every
                         <input
                             className="form-control"
