@@ -26,9 +26,10 @@ const winning = state => {
   return {...state, winner: win}
 }
 
-const updateHistory = ({ winner, gameHistory, player1, player2, player1Name, player2Name, winningScore, alternate }) => {
+const reset = state => {
+  let { gameHistory, winner } = state;
   return {
-    ...initial,
+    ...state,
     gameHistory: winner === "" ? gameHistory :
       [...gameHistory,
         {
@@ -42,10 +43,10 @@ const updateHistory = ({ winner, gameHistory, player1, player2, player1Name, pla
             }
         }
       ],
-    player1Name,
-    player2Name,
-    winningScore,
-    alternate 
+     player1: initial.player1,
+     player2: initial.player2,
+     serving: initial.serving,
+     winner: initial.winner,
   }
 }
 
@@ -64,7 +65,7 @@ const reducer = (state, action) => {
     case "INCREMENT_P1": return winning(server(player1(state)));
     case "INCREMENT_P2": return winning(server(player2(state)));
     case "SAVE_SETTINGS": return startGame(state, action);
-    case "RESET": return updateHistory(state);
+    case "RESET": return reset(state);
     default: return state;
   }
 }
