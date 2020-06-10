@@ -14,11 +14,9 @@ const App = ({ handleIncrementP1, handleIncrementP2, handleReset }) => (
 
         <Player1 
           player="Player 1"
-          handleIncrement={handleIncrementP1}
         />
         <Player2
           player="Player 2"
-          handleIncrement={handleIncrementP2}
         />
 
         { /* winner message */}
