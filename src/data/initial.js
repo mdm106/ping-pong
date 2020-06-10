@@ -14,8 +14,8 @@ const initial = {
           won: false
       }
     }] ,
-    player1Name: "Player 1",
-    player2Name: "Player 2",
+    player1Name: "",
+    player2Name: "",
     winningScore: 21,
     alternate: 5 
 };
