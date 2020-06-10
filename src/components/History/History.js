@@ -20,7 +20,7 @@ const History = ({ gameHistory }) => {
                         {gameHistory.map((game, i) => (
                         <>
                             <tr key={ i }>
-                                <td colspan="3" style={{fontWeight: "bold"}}>Game {i+1}</td>
+                                <td colSpan="3" style={{fontWeight: "bold"}}>Game {i+1}</td>
                             </tr>
                             <tr className={game.player_1.won ? "table-success" : "table-danger"}>
                                 <td>Player 1</td>
