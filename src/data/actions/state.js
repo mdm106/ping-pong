@@ -18,9 +18,12 @@ export const incrementP2 = ({player_2, complete}) => {
 
 // a reset action creator
 // doesn't need any additional data, so no parameters
-export const reset = () => {
+export const reset = ({ player_1, player_2, complete }) => {
     return {
       type: "RESET",
+      player1: player_1.score,
+      player2: player_2.score,
+      winner: complete && !player_2.won ? "1" : complete ? "2" : "",
     }; 
 };
 

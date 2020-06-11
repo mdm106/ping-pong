@@ -1,6 +1,6 @@
 import axios from "../../axios";
 
-import { startGame, incrementP1, incrementP2 } from "./state";
+import { startGame, incrementP1, incrementP2, reset } from "./state";
 
 export const postGame = ({ player1Name, player2Name, winningScore, alternate }) => {
     return (dispatch) => {
@@ -31,6 +31,14 @@ export const patchScoreP2 = () => {
             player: 2,
         }).then(({ data }) => {
             dispatch(incrementP2(data.data));
+        })
+    };
+}
+
+export const getGame = () => {
+    return (dispatch, getState) => {
+        axios.get(`/${getState().id}/`).then(({ data }) => {
+            dispatch(reset(data.data));
         })
     };
 }

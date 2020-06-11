@@ -1,29 +1,34 @@
 import initial from './initial';
 
-///helper function to update the history and called in reset
-const updateHistory = (player1, player2, winner) => {
-  return {
-    player_1: {
-      score: player1,
-      won: winner === "1"
-    },
-    player_2: {
-      score: player2,
-      won: winner === "2"
-    }
-  };
-};
+// ///helper function to update the history and called in reset
+// const updateHistory = (player1, player2, winner) => {
+//   return {
+//     player_1: {
+//       score: player1,
+//       won: winner === "1"
+//     },
+//     player_2: {
+//       score: player2,
+//       won: winner === "2"
+//     }
+//   };
+// };
 
-const reset = state => {
-  let { gameHistory, winner, player1, player2 } = state;
+const reset = (state, { player1, player2, winner}) => {
   return {
     ...state,
-    gameHistory: winner === "" ? gameHistory :
-    (gameHistory[0].player_1.won || gameHistory[0].player_2.won) ?
-      [...gameHistory,
-        updateHistory(player1, player2, winner),
-      ] :
-      [updateHistory(player1, player2, winner)],
+    gameHistory: 
+      [...state.gameHistory,
+        {
+          player_1: {
+            score: player1,
+            won: winner === "1"
+          },
+          player_2: {
+            score: player2,
+            won: winner === "2"
+          }
+        }],        
      player1: initial.player1,
      player2: initial.player2,
      serving: initial.serving,
@@ -66,7 +71,7 @@ const reducer = (state, action) => {
     case "INCREMENT_P1": return scoreP1(state, action);
     case "INCREMENT_P2": return scoreP2(state, action);
     case "SAVE_SETTINGS": return startGame(state, action);
-    case "RESET": return reset(state);
+    case "RESET": return reset(state, action);
     default: return state;
   }
 }
