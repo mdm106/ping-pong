@@ -57,13 +57,14 @@ const reset = state => {
   }
 }
 
-const startGame = (state, {player1Name, player2Name, winningScore, alternate}) => {
+const startGame = (state, {player1Name, player2Name, winningScore, alternate, id}) => {
   return {
     ...state,
     player1Name,
     player2Name,
     winningScore,
     alternate,
+    id,
   }
 }
   

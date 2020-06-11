@@ -18,12 +18,13 @@ export const reset = () => {
     }; 
 };
 
-export const startGame = ({ player1Name, player2Name, winningScore, alternate }) => {
+export const startGame = ({ id, player_1, player_2, winning_score, change_serve }) => {
     return {
         type: "SAVE_SETTINGS",
-        player1Name,
-        player2Name,
-        winningScore: +winningScore,
-        alternate: +alternate,
+        player1Name: player_1.name,
+        player2Name: player_2.name,
+        winningScore: +winning_score,
+        alternate: +change_serve,
+        id: id,
     };
 };
