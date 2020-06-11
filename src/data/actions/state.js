@@ -1,12 +1,18 @@
-export const incrementP1 = () => {
+export const incrementP1 = ({player_1, complete}) => {
     return {
         type: "INCREMENT_P1",
+        player1: player_1.score,
+        serving: player_1.serving,
+        winner: complete && !player_1.won ? "2" : complete ? "1" : "",
     };
 };
 
-export const incrementP2 = () => {
+export const incrementP2 = ({player_2, complete}) => {
     return {
         type: "INCREMENT_P2",
+        player2: player_2.score,
+        serving: !player_2.serving,
+        winner: complete && !player_2.won ? "1" : complete ? "2" : "",
     };
 };
 
