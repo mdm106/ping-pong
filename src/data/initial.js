@@ -5,17 +5,7 @@ const initial = {
     player2: 0,
     serving: true,
     winner: "",
-    gameHistory: [
-      {
-        player_1: { 
-          score: 0,
-          won: false
-      },
-        player_2: { 
-          score: 0,
-          won: false
-      }
-    }] ,
+    gameHistory: [] ,
     player1Name: "",
     player2Name: "",
     winningScore: 21,
