@@ -5,6 +5,7 @@ import Player2 from "./Player/Player2";
 import Result from "./Result";
 import Reset from "./Reset";
 import History from "./History";
+import Loading from "./Loading";
 
 const Game = () => (
     <React.Fragment>
@@ -26,9 +27,9 @@ const Game = () => (
 
         { /* reset button */}
         <Reset />
-
-        <History />
-        
+        <Loading>
+          <History />
+        </Loading>
     </React.Fragment>
 );
 
