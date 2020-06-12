@@ -1,20 +1,6 @@
 import initial from './initial';
 import { loaded } from './actions/state';
 
-// ///helper function to update the history and called in reset
-// const updateHistory = (player1, player2, winner) => {
-//   return {
-//     player_1: {
-//       score: player1,
-//       won: winner === "1"
-//     },
-//     player_2: {
-//       score: player2,
-//       won: winner === "2"
-//     }
-//   };
-// };
-
 const reset = (state) => {
   return {
     ...state,      
