@@ -18,12 +18,10 @@ export const incrementP2 = ({player_2, complete}) => {
 
 // a reset action creator
 // doesn't need any additional data, so no parameters
-export const reset = ({ player_1, player_2, complete }) => {
+export const reset = (data) => {
     return {
       type: "RESET",
-      player1: player_1.score,
-      player2: player_2.score,
-      winner: complete && !player_2.won ? "1" : complete ? "2" : "",
+      gameHistory: data,
     }; 
 };
 
@@ -37,3 +35,10 @@ export const startGame = ({ id, player_1, player_2, winning_score, change_serve 
         id: id,
     };
 };
+
+export const loaded = (data) => {
+    return {
+        type: "LOADED",
+        gameHistory: data,
+    }
+}

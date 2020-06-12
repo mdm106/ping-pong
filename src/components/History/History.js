@@ -3,7 +3,7 @@ import React from "react";
 const History = ({ gameHistory }) => {
     return (
         <>
-        { !(gameHistory[0].player_1.won || gameHistory[0].player_2.won) ? 
+        { gameHistory===[] ? 
                 <h2 className="alert alert-secondary mt-2">No previous results to display</h2> 
             :
             <div className="mt-2">
@@ -17,20 +17,20 @@ const History = ({ gameHistory }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {gameHistory.map((game, i) => (
+                        {gameHistory.reverse().map((game, i) => (
                         <React.Fragment key= { i }>
                             <tr>
-                                <td colSpan="3" style={{fontWeight: "bold"}}>Game {i+1}</td>
+                                <td colSpan="2" style={{fontWeight: "bold"}}>Game {i+1}</td>
                             </tr>
-                            <tr className={game.player_1.won ? "table-success" : "table-danger"}>
+                            <tr className={game.player_1.won ? "table-success" : game.complete ? "table-danger" : "table-secondary"}>
                                 <td>Player 1</td>
                                 <td>{game.player_1.score}</td>
-                                <td>{game.player_1.won ? "Won" : "Lost"}</td>
+                                <td>{!game.complete ? "Incomplete game" : game.player_1.won ? "Won" : "Lost"}</td>
                             </tr> 
-                            <tr className={game.player_2.won ? "table-success" : "table-danger"}>
+                            <tr className={game.player_2.won ? "table-success" : game.complete ? "table-danger" : "table-secondary"}>
                                 <td>Player 2</td>
                                 <td>{game.player_2.score}</td>
-                                <td>{game.player_2.won ? "Won" : "Lost"}</td>
+                                <td>{!game.complete ? "Incomplete game" : game.player_2.won ? "Won" : "Lost"}</td>
                             </tr> 
                         </React.Fragment>
                         ))}
