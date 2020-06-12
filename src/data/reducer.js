@@ -49,6 +49,13 @@ const load = (state, {gameHistory}) => {
   }
 }
 
+const deleteGame = (state, { id } ) => {
+  return {
+    ...state,
+    gameHistory: state.gameHistory.filter((game) => game.id !== id),
+  }
+}
+
   
 const reducer = (state, action) => {
   switch (action.type) {
@@ -57,6 +64,7 @@ const reducer = (state, action) => {
     case "SAVE_SETTINGS": return startGame(state, action);
     case "LOADED": return load(state, action);
     case "RESET": return reset(state);
+    case "DELETE_GAME": return deleteGame(state, action);
     default: return state;
   }
 }

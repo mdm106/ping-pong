@@ -1,6 +1,6 @@
 import axios from "../../axios";
 
-import { startGame, incrementP1, incrementP2, reset, loaded } from "./state";
+import { startGame, incrementP1, incrementP2, reset, loaded, deleted } from "./state";
 
 export const postGame = ({ player1Name, player2Name, winningScore, alternate }) => {
     return (dispatch) => {
@@ -39,6 +39,14 @@ export const getGames = () => {
     return (dispatch) => {
         axios.get("/").then(({ data }) => {
             dispatch(loaded(data.data));
+        })
+    };
+}
+
+export const deleteGame = (id) => {
+    return (dispatch) => {
+        axios.delete(`/${id}`).then(() => {
+            dispatch(deleted(id));
         })
     };
 }

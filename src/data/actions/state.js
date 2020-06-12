@@ -41,3 +41,10 @@ export const loaded = (data) => {
         gameHistory: data,
     }
 }
+
+export const deleted = (id) => {
+    return {
+        type: "DELETE_GAME",
+        id,
+    }
+}

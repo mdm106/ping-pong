@@ -1,6 +1,6 @@
 import React from "react";
 
-const History = ({ gameHistory }) => {
+const History = ({ gameHistory, handleDelete }) => {
     return (
         <>
         { gameHistory===[] ? 
@@ -21,6 +21,12 @@ const History = ({ gameHistory }) => {
                         <React.Fragment key= { i }>
                             <tr>
                                 <td colSpan="2" style={{fontWeight: "bold"}}>Game {i+1}</td>
+                                <td>
+                                    <button className="btn btn-primary"
+                                            onClick={() => handleDelete(game.id)}>
+                                        x
+                                    </button>
+                                </td>
                             </tr>
                             <tr className={game.player_1.won ? "table-success" : game.complete ? "table-danger" : "table-secondary"}>
                                 <td>Player 1</td>
