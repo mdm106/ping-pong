@@ -35,14 +35,6 @@ export const patchScoreP2 = () => {
     };
 }
 
-export const getGameReset = () => {
-    return (dispatch, getState) => {
-        axios.get("/").then(({ data }) => {
-            dispatch(reset(data.data));
-        })
-    };
-}
-
 export const getGames = () => {
     return (dispatch) => {
         axios.get("/").then(({ data }) => {

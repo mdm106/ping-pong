@@ -15,14 +15,14 @@ import { loaded } from './actions/state';
 //   };
 // };
 
-const reset = (state, { gameHistory }) => {
+const reset = (state) => {
   return {
-    ...state,
-    gameHistory,        
+    ...state,      
     player1: initial.player1,
     player2: initial.player2,
     serving: initial.serving,
     winner: initial.winner,
+    id: initial.id,
   }
 }
 
@@ -70,7 +70,7 @@ const reducer = (state, action) => {
     case "INCREMENT_P2": return scoreP2(state, action);
     case "SAVE_SETTINGS": return startGame(state, action);
     case "LOADED": return load(state, action);
-    case "RESET": return reset(state, action);
+    case "RESET": return reset(state);
     default: return state;
   }
 }

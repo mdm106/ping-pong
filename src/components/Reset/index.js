@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 // wrapped the entire app, so that it can access the store import { connect } from "react-redux";
 // import the React component that we want to wrap // in the same directory, so path is short
 import Reset from "./Reset";
-import { getGameReset } from "../../data/actions/api";
+import { reset } from "../../data/actions/state";
 import history from "../../history";
 // mapDispatchToProps: passes in the store.dispatch method
 // we can then create anonymous functions to call it with the
@@ -11,7 +11,7 @@ import history from "../../history";
 const mapDispatchToProps = dispatch => {
     return {
         handleReset: () => {
-            dispatch(getGameReset());
+            dispatch(reset());
 
             history.push("/");
         } 

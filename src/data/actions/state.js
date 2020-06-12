@@ -18,10 +18,9 @@ export const incrementP2 = ({player_2, complete}) => {
 
 // a reset action creator
 // doesn't need any additional data, so no parameters
-export const reset = (data) => {
+export const reset = () => {
     return {
       type: "RESET",
-      gameHistory: data,
     }; 
 };
 
